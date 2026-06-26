@@ -9,7 +9,6 @@ const navItems = [
   { to: '/file-integrity', label: 'File Integrity' },
   { to: '/log-analyzer', label: 'Log Analyzer' },
   { to: '/ioc-scanner', label: 'IOC Scanner' },
-  { to: '/report-generator', label: 'Report Generator' },
   { to: '/settings', label: 'Settings' },
 ]
 
@@ -21,7 +20,6 @@ const routeTitles = {
   '/file-integrity': 'File Integrity',
   '/log-analyzer': 'Log Analyzer',
   '/ioc-scanner': 'IOC Scanner',
-  '/report-generator': 'Report Generator',
   '/settings': 'Settings',
 }
 
