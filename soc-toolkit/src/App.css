@@ -317,6 +317,200 @@
   font-size: 0.74rem;
 }
 
+.password-checker-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.password-checker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.password-strength-badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(84, 196, 204, 0.35);
+  background: rgba(16, 28, 41, 0.72);
+  color: var(--text-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.password-strength-badge.weak {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(74, 24, 24, 0.65);
+}
+
+.password-strength-badge.medium {
+  border-color: rgba(251, 146, 60, 0.4);
+  background: rgba(74, 44, 18, 0.65);
+}
+
+.password-strength-badge.strong {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(16, 44, 29, 0.65);
+}
+
+.password-strength-badge.very-strong {
+  border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(13, 54, 42, 0.75);
+}
+
+.password-checker-copy,
+.password-disclaimer {
+  color: var(--text-soft);
+}
+
+.password-input-group {
+  display: grid;
+  gap: 10px;
+}
+
+.password-input-label {
+  color: var(--text-strong);
+  font-size: 0.92rem;
+}
+
+.password-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(84, 196, 204, 0.28);
+  background: rgba(8, 15, 24, 0.88);
+  color: var(--text-strong);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.password-input::placeholder {
+  color: var(--text-dim);
+}
+
+.password-input:focus {
+  border-color: rgba(84, 196, 204, 0.65);
+  box-shadow: 0 0 0 3px rgba(75, 198, 205, 0.15);
+}
+
+.password-meter {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(10, 18, 28, 0.95);
+  border: 1px solid rgba(84, 196, 204, 0.18);
+  overflow: hidden;
+}
+
+.password-meter-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+.password-meter-fill.weak {
+  background: linear-gradient(90deg, #ef4444, #f97316);
+}
+
+.password-meter-fill.medium {
+  background: linear-gradient(90deg, #f97316, #facc15);
+}
+
+.password-meter-fill.strong {
+  background: linear-gradient(90deg, #facc15, #22c55e);
+}
+
+.password-meter-fill.very-strong {
+  background: linear-gradient(90deg, #22c55e, #4bc6cd);
+}
+
+.password-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.password-summary > div,
+.password-criteria-card {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(10, 18, 28, 0.72);
+}
+
+.password-summary-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.password-summary strong {
+  color: var(--text-strong);
+  font-size: 1rem;
+}
+
+.password-criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.password-criteria-card {
+  display: grid;
+  gap: 12px;
+}
+
+.password-criteria-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.criterion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-soft);
+}
+
+.criterion-item.passed {
+  color: #b9f6ca;
+}
+
+.criterion-item.failed {
+  color: #fca5a5;
+}
+
+.criterion-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(84, 196, 204, 0.28);
+  background: rgba(16, 28, 41, 0.72);
+  color: var(--text-strong);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.criterion-empty {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.password-disclaimer {
+  font-size: 0.82rem;
+}
+
 @media (max-width: 1024px) {
   .soc-shell {
     grid-template-columns: 1fr;
@@ -344,6 +538,11 @@
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .password-summary,
+  .password-criteria-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 620px) {
@@ -363,5 +562,9 @@
   .chart-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .password-checker-header {
+    flex-direction: column;
   }
 }
