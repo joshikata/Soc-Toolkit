@@ -511,6 +511,141 @@
   font-size: 0.82rem;
 }
 
+.hash-generator-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.hash-generator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hash-generator-copy,
+.hash-empty-state {
+  color: var(--text-soft);
+}
+
+.hash-input-group {
+  display: grid;
+  gap: 10px;
+}
+
+.hash-input-label {
+  color: var(--text-strong);
+  font-size: 0.92rem;
+}
+
+.hash-input {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(84, 196, 204, 0.28);
+  background: rgba(8, 15, 24, 0.88);
+  color: var(--text-strong);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hash-input::placeholder {
+  color: var(--text-dim);
+}
+
+.hash-input:focus {
+  border-color: rgba(84, 196, 204, 0.65);
+  box-shadow: 0 0 0 3px rgba(75, 198, 205, 0.15);
+}
+
+.hash-feedback {
+  color: #b9f6ca;
+  font-size: 0.86rem;
+}
+
+.hash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hash-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(10, 18, 28, 0.72);
+}
+
+.hash-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hash-label {
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.hash-output {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(84, 196, 204, 0.2);
+  background: rgba(7, 13, 22, 0.95);
+  color: var(--text-strong);
+  font-family: var(--body);
+  outline: none;
+}
+
+.hash-copy-button,
+.hash-clear-button {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(84, 196, 204, 0.28);
+  background: rgba(16, 28, 41, 0.82);
+  color: var(--text-soft);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s ease, color 0.2s ease,
+    background 0.2s ease;
+}
+
+.hash-copy-button:hover,
+.hash-clear-button:hover {
+  border-color: rgba(84, 196, 204, 0.5);
+  color: var(--text-strong);
+  background: rgba(24, 39, 54, 0.95);
+}
+
+.hash-copy-button:active,
+.hash-clear-button:active {
+  transform: translateY(1px);
+}
+
+.hash-copy-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@media (max-width: 1024px) {
+  .hash-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .hash-generator-header {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1024px) {
   .soc-shell {
     grid-template-columns: 1fr;
