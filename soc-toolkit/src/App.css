@@ -58,16 +58,22 @@
 }
 
 .menu-item {
+  list-style: none;
+}
+
+.menu-link {
+  display: block;
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid transparent;
   color: var(--text-soft);
   background: transparent;
+  text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.menu-item:hover,
-.menu-item.is-active {
+.menu-link:hover,
+.menu-link.is-active {
   border-color: rgba(84, 196, 204, 0.35);
   color: var(--text-strong);
   background: rgba(24, 39, 54, 0.75);

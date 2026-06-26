@@ -1,7 +1,33 @@
 import './App.css'
-import Dashboard from './components/pages/Dashboard'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
+
+const navItems = [
+  { to: '/', label: 'Dashboard', end: true },
+  { to: '/password-checker', label: 'Password Checker' },
+  { to: '/hash-generator', label: 'Hash Generator' },
+  { to: '/port-scanner', label: 'Port Scanner' },
+  { to: '/file-integrity', label: 'File Integrity' },
+  { to: '/log-analyzer', label: 'Log Analyzer' },
+  { to: '/ioc-scanner', label: 'IOC Scanner' },
+  { to: '/report-generator', label: 'Report Generator' },
+  { to: '/settings', label: 'Settings' },
+]
+
+const routeTitles = {
+  '/': 'Dashboard',
+  '/password-checker': 'Password Checker',
+  '/hash-generator': 'Hash Generator',
+  '/port-scanner': 'Port Scanner',
+  '/file-integrity': 'File Integrity',
+  '/log-analyzer': 'Log Analyzer',
+  '/ioc-scanner': 'IOC Scanner',
+  '/report-generator': 'Report Generator',
+  '/settings': 'Settings',
+}
 
 function App() {
+  const { pathname } = useLocation()
+
   return (
     <div className="soc-shell">
       <aside className="sidebar">
@@ -14,11 +40,19 @@ function App() {
         <nav aria-label="SOC navigation">
           <p className="section-label">Workspace</p>
           <ul className="menu-list">
-            <li className="menu-item is-active">Dashboard</li>
-            <li className="menu-item">Log Analyzer</li>
-            <li className="menu-item">IOC Scanner</li>
-            <li className="menu-item">File Integrity</li>
-            <li className="menu-item">Reports</li>
+            {navItems.map((item) => (
+              <li className="menu-item" key={item.label}>
+                <NavLink
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) =>
+                    isActive ? 'menu-link is-active' : 'menu-link'
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -32,7 +66,7 @@ function App() {
         <header className="topbar">
           <div>
             <p className="eyebrow">Vista principal</p>
-            <h2>Dashboard</h2>
+            <h2>{routeTitles[pathname] ?? 'SOC Toolkit'}</h2>
           </div>
           <div className="topbar-metrics" aria-label="estado de sistema">
             <span className="chip">Threat Feed: Online</span>
@@ -41,7 +75,7 @@ function App() {
         </header>
 
         <main className="main-content" aria-label="contenido principal">
-          <Dashboard />
+          <Outlet />
         </main>
       </div>
     </div>
